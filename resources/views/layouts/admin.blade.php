@@ -70,7 +70,7 @@
                 <li class="nav-item"><a class="nav-link {{ request()->routeIs('admin.service.*') ? 'active' : '' }}" href="{{route('admin.service.index')}}"><i class="bi bi-briefcase me-2"></i> Xidmətlər</a></li>
                 <li class="nav-item"><a class="nav-link {{ request()->routeIs('admin.customer.*') ? 'active' : '' }}" href="{{route('admin.customer.index')}}"><i class="bi bi-people me-2"></i> Müştərilər</a></li>
                 <li class="nav-item"><a class="nav-link {{ request()->routeIs('admin.todo.*') ? 'active' : '' }}" href="{{route('admin.todo.index')}}"><i class="bi bi-check2-square me-2"></i> Tapşırıqlar</a></li>
-                 <li class="nav-item"><a class="nav-link {{ request()->routeIs('admin.sale.*') ? 'active' : '' }}" href="{{route('admin.sale.index')}}"><i class="bi bi-graph-up-arrow me-2"></i> Satışıar</a></li>
+                 <li class="nav-item"><a class="nav-link {{ request()->routeIs('admin.sale.*') ? 'active' : '' }}" href="{{route('admin.sale.index')}}"><i class="bi bi-graph-up-arrow me-2"></i> Satışlar</a></li>
             </ul>
 
             <div class="border-top pt-3 mt-4">
@@ -94,7 +94,7 @@
                     <ul class="dropdown-menu dropdown-menu-end shadow border-0">
                         <li><a class="dropdown-item" href="#">Profil</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item text-danger" href="#">Çıxış</a></li>
+                        <li><a class="dropdown-item text-danger" href="{{route('admin.auth.logout')}}">Çıxış</a></li>
                     </ul>
                 </div>
             </nav>
@@ -106,7 +106,12 @@
     </div>
 </div>
 
+{{-- Bootstrap JS --}}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+{{-- Səhifələrdən gələn dinamik skriptlər bura yapışdırılacaq --}}
+@stack('scripts')
+
 <script>
     function toggleSidebar() {
         document.getElementById('sidebar').classList.toggle('show');

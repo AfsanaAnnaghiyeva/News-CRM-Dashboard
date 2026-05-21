@@ -22,7 +22,8 @@ Route::prefix('admin')->group(function () {
 
     Route::prefix('auth')->controller(AuthController::class)->group(function () {
         Route::get('', 'index')->name('admin.auth.index');
-        Route::post('', 'login')->name('admin.auth.login');
+        Route::post('login', 'login')->name('admin.auth.login');
+        Route::get('logout','logout')->name('admin.auth.logout');
     });
 
    Route::middleware(CheckAdmin::class)->group(function(){

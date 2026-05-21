@@ -7,6 +7,7 @@ use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Todo;
 
 class User extends Authenticatable
 {
@@ -56,7 +57,6 @@ class User extends Authenticatable
     }
     public function todos()
    {
-    
-    return $this->hasMany(Todo::class, 'user_id', 'id');
-  }
+     return $this->hasMany(Todo::class, 'user_id', 'id');
+   }
 }

@@ -39,12 +39,13 @@
             </div>
         </div>
         <div class="col-6 col-md-4 col-lg-2">
-            <div class="card border-0 shadow-sm p-3 text-center" style="border-radius: 12px;">
-                <div class="text-warning fs-2 mb-2"><i class="bi bi-check2-circle"></i></div>
-                <h4 class="fw-bold mb-0">{{ $lastTodos->where('status', 0)->count() }}</h4>
-                <small class="text-muted">Aktiv İşlər</small>
-            </div>
-        </div>
+         <div class="card border-0 shadow-sm p-3 text-center" style="border-radius: 12px;">
+          <div class="text-warning fs-2 mb-2"><i class="bi bi-check2-circle"></i></div>
+          {{-- Bura dəyişdi --}}
+        <h4 class="fw-bold mb-0">{{ $activeTodosCount }}</h4>
+        <small class="text-muted">Aktiv İşlər</small>
+    </div>
+</div>
         <div class="col-6 col-md-4 col-lg-2">
             <div class="card border-0 shadow-sm p-3 text-center" style="border-radius: 12px;">
                 <div class="text-info fs-2 mb-2"><i class="bi bi-briefcase"></i></div>
@@ -96,7 +97,7 @@
                             @forelse($recentSales as $sale)
                             <tr>
                                 <td class="fw-bold">{{ $sale->customer->name ?? 'Naməlum' }}</td>
-                                <td><span class="badge bg-info text-dark">{{ $sale->service->name ?? 'Xidmət yoxdur' }}</span></td>
+                                <td><span class="badge bg-info text-dark">{{ $sale->service->title ?? 'Xidmət yoxdur' }}</span></td>
                                 <td class="text-success fw-bold">{{ $sale->price }} AZN</td>
                                 <td class="small text-muted">{{ $sale->created_at->format('d.m.Y') }}</td>
                             </tr>
@@ -131,64 +132,86 @@
     </div>
 </div>
 @endsection
-
 @push('scripts')
-{{-- Chart.js kitabxanasını birbaşa burada çağırırıq --}}
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
-    // Səhifə tam yükləndikdən sonra işləməsi üçün:
     document.addEventListener("DOMContentLoaded", function() {
-        
-        // 1. Müştəri Aktivliyi (Line Chart)
+        // Datalları alırıq
+        const labels = {!! json_encode($labels) !!};
+        const values = {!! json_encode($values ?? []) !!};
+        const monthlyLabels = {!! json_encode($monthlyLabels) !!};
+        const monthlyValues = {!! json_encode($monthlyValues ?? []) !!};
+
+        // 1. Müştəri Aktivliyi (Line Chart) - Modern Dizayn
         const canvas1 = document.getElementById('dashboardChart');
-        if (canvas1) {
+        if (canvas1 && labels && labels.length > 0) {
             const ctx = canvas1.getContext('2d');
-            let gradient = ctx.createLinearGradient(0, 0, 0, 400);
-            gradient.addColorStop(0, 'rgba(13, 110, 253, 0.4)');
+            let gradient = ctx.createLinearGradient(0, 0, 0, 300);
+            gradient.addColorStop(0, 'rgba(13, 110, 253, 0.2)');
             gradient.addColorStop(1, 'rgba(13, 110, 253, 0)');
 
             new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: @json($labels), 
+                    labels: labels,
                     datasets: [{
                         label: 'Satış Sayı',
-                        data: @json($values), 
+                        data: values,
                         borderColor: '#0d6efd',
                         backgroundColor: gradient,
                         fill: true,
-                        borderWidth: 3,
-                        tension: 0.4
+                        borderWidth: 2,
+                        tension: 0.5, // Xətti tam yumşaq (oval) edir
+                        pointRadius: 5,
+                        pointBackgroundColor: '#fff',
+                        pointBorderWidth: 2,
+                        pointHoverRadius: 7
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: { legend: { display: false } }
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { 
+                            beginAtZero: true, 
+                            suggestedMax: Math.max(...values) +3, // Üstdən boşluq qoyur
+                            ticks: { 
+                                stepSize: 1,
+                                precision: 0
+                            } 
+                        },
+                        x: { grid: { display: false } }
+                    }
                 }
             });
         }
 
-        // 2. Aylıq Gəlir (Bar Chart)
+        // 2. Aylıq Gəlir (Bar Chart) - Zərif Sütunlar
         const canvas2 = document.getElementById('revenueChart');
-        if (canvas2) {
-            const ctxRev = canvas2.getContext('2d');
-            new Chart(ctxRev, {
+        if (canvas2 && monthlyLabels && monthlyLabels.length > 0) {
+            new Chart(canvas2.getContext('2d'), {
                 type: 'bar',
                 data: {
-                    labels: @json($monthlyLabels),
+                    labels: monthlyLabels,
                     datasets: [{
                         label: 'Gəlir (AZN)',
-                        data: @json($monthlyValues),
+                        data: monthlyValues,
                         backgroundColor: '#198754',
-                        borderRadius: 5
+                        borderRadius: 5, // Küncləri yuvarlaq edir
+                        barPercentage: 0.6, // Sütunu xeyli incəldir
+                        categoryPercentage: 0.5
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: { legend: { display: false } }
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { grid: { color: '#f0f0f0' } },
+                        x: { grid: { display: false } }
+                    }
                 }
             });
         }
