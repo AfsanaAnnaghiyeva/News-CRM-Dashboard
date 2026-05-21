@@ -32,9 +32,9 @@ class DashboardController extends Controller
         $totalPosts = Post::count();
         $totalComments = Comment::count();
 
-        $activeTodosCount = Todo::where('is_completed', 0)->count();
+        $activeTodosCount = Todo::where('user_id', auth()->user()->id)->where('is_completed',0)->count();
 
-        $lastTodos = Todo::latest()->take(3)->get();
+        $lastTodos = Todo::where('user_id', auth()->user()->id)->latest()->take(3)->get();
 
         $monthlyEarnings = Sale::selectRaw('SUM(price) as total, MONTH(created_at) as month_num')
         ->whereyear('created_at',date('Y'))
