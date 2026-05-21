@@ -13,10 +13,8 @@
                 </div>
 
                 <div class="card-body px-4 pb-4">
-                    {{-- Sənin orijinal action route-un --}}
                     <form action="{{ route('admin.service.update', ['service_id' => request()->route('service_id')]) }}" method="POST">
                         @csrf
-                        {{-- Əgər backend PUT gözləyirsə @method('PUT') əlavə edə bilərsən --}}
                         
                         <div class="row">
                             <div class="col-12 mb-3">

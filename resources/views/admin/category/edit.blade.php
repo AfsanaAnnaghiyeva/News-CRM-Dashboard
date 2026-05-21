@@ -15,7 +15,6 @@
                 <div class="card-body px-4 pb-4">
                     <form action="{{ route('admin.category.update', ['category_id' => request()->route('category_id')]) }}" method="POST">
                         @csrf
-                        @method('PUT') {{-- Update əməliyyatı üçün vacibdir --}}
                         
                         <div class="mb-4">
                             <label for="title" class="form-label small fw-bold text-secondary">Kateqoriya Adı</label>

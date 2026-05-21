@@ -15,7 +15,6 @@
                 <div class="card-body px-4 pb-4">
                     <form action="{{ route('admin.todo.update', ['todo_id' => $item->id]) }}" method="POST">
                         @csrf
-                        {{-- Laravel update üçün adətən PUT metodundan istifadə edir, əgər Controller-də dəyişsən bura @method('PUT') əlavə edə bilərsən --}}
                         
                         <div class="mb-3">
                             <label class="form-label small fw-bold text-secondary">Tapşırıq:</label>

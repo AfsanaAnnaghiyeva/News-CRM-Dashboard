@@ -15,8 +15,6 @@
                 <div class="card-body px-4 pb-4">
                     <form action="{{ route('admin.post.update', ['post_id' => $item->id]) }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        {{-- Əgər controller-də update metodu PUT gözləyirsə, aşağıdakı sətri aktiv et: --}}
-                        {{-- @method('PUT') --}}
                         
                         <div class="row">
                             <div class="col-12 mb-3">

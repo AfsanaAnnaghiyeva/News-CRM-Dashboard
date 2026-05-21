@@ -90,8 +90,7 @@
                             </div>
                         </div>
                     </form>
-
-                    {{-- Error Alert --}}
+                    
                     @if($errors->any())
                         <div class="alert alert-danger mt-4 border-0 shadow-sm" style="border-radius: 10px;">
                             <ul class="mb-0 small">

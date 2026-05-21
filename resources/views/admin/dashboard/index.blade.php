@@ -41,7 +41,7 @@
         <div class="col-6 col-md-4 col-lg-2">
          <div class="card border-0 shadow-sm p-3 text-center" style="border-radius: 12px;">
           <div class="text-warning fs-2 mb-2"><i class="bi bi-check2-circle"></i></div>
-          {{-- Bura dəyişdi --}}
+         
         <h4 class="fw-bold mb-0">{{ $activeTodosCount }}</h4>
         <small class="text-muted">Aktiv İşlər</small>
     </div>

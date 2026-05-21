@@ -13,7 +13,6 @@
                 </div>
 
                 <div class="card-body px-4 pb-4">
-                    {{-- Şəkil (Loqo) yükləndiyi üçün enctype mütləqdir --}}
                     <form action="{{ route('admin.customer.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         
@@ -67,7 +66,6 @@
                         </div>
                     </form>
 
-                    {{-- Xətaların siyahısı (Alternativ olaraq) --}}
                     @if($errors->any())
                         <div class="alert alert-danger mt-4 py-2 small">
                             <ul class="mb-0">

@@ -26,7 +26,9 @@
             </div>
 
             <div class="todo-list">
+
                 @forelse($todos as $todo)
+                
                 @php 
                     // Qırmızı xətaların qarşısını almaq üçün məntiqi burada hesablayaq
                     $isDone = $todo->is_completed;

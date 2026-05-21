@@ -13,7 +13,6 @@
                 </div>
 
                 <div class="card-body px-4 pb-4">
-                    {{-- Sənin orijinal action və method kodun --}}
                     <form action="{{ route('admin.post.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         
@@ -65,7 +64,6 @@
                         </div>
                     </form>
 
-                    {{-- Xətaları görmək üçün (debug məqsədli saxlayıram, dizaynı pozmur) --}}
                     @if($errors->any())
                         <div class="alert alert-danger mt-4">
                             <ul class="mb-0">
