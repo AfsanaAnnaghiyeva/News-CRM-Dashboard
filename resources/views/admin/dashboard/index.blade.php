@@ -16,58 +16,81 @@
     </div>
 
     {{-- Statistika Kartları --}}
-    <div class="row g-3 mb-4">
-        <div class="col-6 col-md-4 col-lg-2">
-            <div class="card border-0 shadow-sm p-3 text-center" style="border-radius: 12px;">
+ {{-- Statistika Kartları --}}
+<div class="row g-3 mb-4">
+    {{-- Xəbərlər Kartı --}}
+    <div class="col-6 col-md-4 col-lg-2">
+        <a href="{{ route('admin.post.index') }}" class="text-decoration-none text-dark">
+            <div class="card border-0 shadow-sm p-3 text-center" style="border-radius: 12px; transition: 0.3s;" >
                 <div class="text-primary fs-2 mb-2"><i class="bi bi-newspaper"></i></div>
                 <h4 class="fw-bold mb-0">{{ $totalPosts }}</h4>
                 <small class="text-muted">Xəbərlər</small>
             </div>
-        </div>
-        <div class="col-6 col-md-4 col-lg-2">
-            <div class="card border-0 shadow-sm p-3 text-center" style="border-radius: 12px;">
+        </a>
+    </div>
+
+    {{-- Şərhlər Kartı --}}
+    <div class="col-6 col-md-4 col-lg-2">
+        <a href="{{ route('admin.comment.index') }}" class="text-decoration-none text-dark">
+            <div class="card border-0 shadow-sm p-3 text-center" style="border-radius: 12px; transition: 0.3s;">
                 <div class="text-secondary fs-2 mb-2"><i class="bi bi-chat-dots"></i></div>
                 <h4 class="fw-bold mb-0">{{ $totalComments }}</h4>
                 <small class="text-muted">Şərhlər</small>
             </div>
-        </div>
-        <div class="col-6 col-md-4 col-lg-2">
-            <div class="card border-0 shadow-sm p-3 text-center" style="border-radius: 12px;">
+        </a>
+    </div>
+
+    {{-- Müştərilər Kartı --}}
+    <div class="col-6 col-md-4 col-lg-2">
+        <a href="{{ route('admin.customer.index') }}" class="text-decoration-none text-dark">
+            <div class="card border-0 shadow-sm p-3 text-center" style="border-radius: 12px; transition: 0.3s;">
                 <div class="text-success fs-2 mb-2"><i class="bi bi-people"></i></div>
                 <h4 class="fw-bold mb-0">{{ $totalCustomers }}</h4>
                 <small class="text-muted">Müştərilər</small>
             </div>
-        </div>
-        <div class="col-6 col-md-4 col-lg-2">
-         <div class="card border-0 shadow-sm p-3 text-center" style="border-radius: 12px;">
-          <div class="text-warning fs-2 mb-2"><i class="bi bi-check2-circle"></i></div>
-         
-        <h4 class="fw-bold mb-0">{{ $activeTodosCount }}</h4>
-        <small class="text-muted">Aktiv İşlər</small>
+        </a>
     </div>
-</div>
-        <div class="col-6 col-md-4 col-lg-2">
-            <div class="card border-0 shadow-sm p-3 text-center" style="border-radius: 12px;">
+
+    {{-- Aktiv İşlər Kartı --}}
+    <div class="col-6 col-md-4 col-lg-2">
+        <a href="{{ route('admin.todo.index') }}" class="text-decoration-none text-dark">
+            <div class="card border-0 shadow-sm p-3 text-center" style="border-radius: 12px; transition: 0.3s;">
+                <div class="text-warning fs-2 mb-2"><i class="bi bi-check2-circle"></i></div>
+                <h4 class="fw-bold mb-0">{{ $activeTodosCount }}</h4>
+                <small class="text-muted">Aktiv İşlər</small>
+            </div>
+        </a>
+    </div>
+
+    {{-- Xidmətlər Kartı --}}
+    <div class="col-6 col-md-4 col-lg-2">
+        <a href="{{ route('admin.service.index') }}" class="text-decoration-none text-dark">
+            <div class="card border-0 shadow-sm p-3 text-center" style="border-radius: 12px; transition: 0.3s;">
                 <div class="text-info fs-2 mb-2"><i class="bi bi-briefcase"></i></div>
                 <h4 class="fw-bold mb-0">{{ $totalServices }}</h4>
                 <small class="text-muted">Xidmətlər</small>
             </div>
-        </div>
-        <div class="col-6 col-md-4 col-lg-2">
-            <div class="card border-0 shadow-sm p-3 text-center" style="border-radius: 12px;">
+        </a>
+    </div>
+
+    {{-- Satışlar Kartı --}}
+    <div class="col-6 col-md-4 col-lg-2">
+        <a href="{{ route('admin.sale.index') }}" class="text-decoration-none text-dark">
+            <div class="card border-0 shadow-sm p-3 text-center" style="border-radius: 12px; transition: 0.3s;" >
                 <div class="text-danger fs-2 mb-2"><i class="bi bi-cart-check"></i></div>
                 <h4 class="fw-bold mb-0">{{ $totalSales }}</h4>
                 <small class="text-muted">Satışlar</small>
             </div>
-        </div>
+        </a>
     </div>
+</div>
 
     <div class="row g-4">
         {{-- Qrafik 1: Müştəri Satış Aktivliyi --}}
         <div class="col-12 col-lg-6">
             <div class="card border-0 shadow-sm p-4" style="border-radius: 15px;">
                 <h5 class="fw-bold mb-4"><i class="bi bi-graph-up me-2"></i>Müştəri Satış Aktivliyi</h5>
-               <div style="position: relative; height: 300px; width: 100%;">
+               <div style="position: relative; height: 200px; width: 100%;">
             <canvas id="dashboardChart"></canvas>
         </div>
             </div>
@@ -77,7 +100,7 @@
         <div class="col-12 col-lg-6">
             <div class="card border-0 shadow-sm p-4" style="border-radius: 15px;">
                 <h5 class="fw-bold mb-4"><i class="bi bi-cash-stack me-2"></i>Aylıq Gəlir Trendi (AZN)</h5>
-                <canvas id="revenueChart" style="max-height: 300px;"></canvas>
+                <canvas id="revenueChart" style="max-height: 200px;"></canvas>
             </div>
         </div>
 
@@ -217,5 +240,6 @@
             });
         }
     });
+
 </script>
 @endpush

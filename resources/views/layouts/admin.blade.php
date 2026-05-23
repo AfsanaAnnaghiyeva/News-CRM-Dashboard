@@ -31,8 +31,6 @@
             background-color: #e9ecef; 
             color: #0d6efd; 
         }
-
-        /* Mobil üçün burger menyu məntiqi */
         @media (max-width: 768px) {
             .sidebar {
                 position: fixed;

@@ -34,7 +34,7 @@ class DashboardController extends Controller
 
         $activeTodosCount = Todo::where('user_id', auth()->user()->id)->where('is_completed',0)->count();
 
-        $lastTodos = Todo::where('user_id', auth()->user()->id)->latest()->take(3)->get();
+        $lastTodos = Todo::where('user_id', auth()->user()->id)->where('is_completed', 0)->latest()->take(3)->get();
 
         $monthlyEarnings = Sale::selectRaw('SUM(price) as total, MONTH(created_at) as month_num')
         ->whereyear('created_at',date('Y'))

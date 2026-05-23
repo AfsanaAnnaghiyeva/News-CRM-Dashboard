@@ -75,19 +75,17 @@
 </div>
 
 <style>
-    /* Kart Hover Effekti */
+    .card{transition: all .4s ease;}
     .card:hover {
         transform: translateY(-5px);
         box-shadow: 0 10px 20px rgba(0,0,0,0.08) !important;
         border: 1px solid #0d6efd22 !important;
     }
 
-    /* Kölgə tənzimləməsi */
     .shadow-xs {
         box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
 
-    /* Mobil tənzimləmə: Kiçik ekranlarda 2 kart yan-yana */
     @media (max-width: 576px) {
         .col-6 {
             padding-left: 8px;
