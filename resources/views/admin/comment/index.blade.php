@@ -94,7 +94,7 @@
         }
     }
     .card {
-        transition: all 0.3s ease;
+        transition: all .4s ease;
     }
     .card:hover {
         transform: translateX(5px);

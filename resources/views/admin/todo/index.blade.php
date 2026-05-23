@@ -30,7 +30,6 @@
                 @forelse($todos as $todo)
                 
                 @php 
-                    // Qırmızı xətaların qarşısını almaq üçün məntiqi burada hesablayaq
                     $isDone = $todo->is_completed;
                     $borderColor = $isDone ? '#198754' : '#ffc107';
                     $textClass = $isDone ? 'text-decoration-line-through text-muted opacity-50' : 'fw-bold text-dark';

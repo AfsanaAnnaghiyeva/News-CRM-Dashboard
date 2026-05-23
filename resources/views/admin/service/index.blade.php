@@ -40,13 +40,13 @@
                         </div>
                     </div>
 
-                    <h3 class="fw-bold text-dark mb-1" style="letter-spacing: -0.5px;">
+                    <h3 class=" fs-4 fw-bold text-dark mb-1" style="letter-spacing: -0.5px;">
                         {{ $item->title }}
                     </h3>
                     
                     <div class="mb-3">
-                        <span class="fs-4 fw-bold text-primary">{{ number_format($item->price, 2) }}</span>
-                        <span class="text-muted fw-medium" style="font-size: 0.85rem;">AZN</span>
+                        <span class="fs-5 fw-bold text-primary">{{ number_format($item->price, 2) }}</span>
+                        <span class="text-muted fw-medium" style="font-size: .7rem;">AZN</span>
                     </div>
 
                     <p class="text-muted small mb-4" style="line-height: 1.6; display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden;">
@@ -80,9 +80,9 @@
 </div>
 
 <style>
-    /* Kart effekti */
     .card {
         border: 1px solid rgba(0,0,0,0.05) !important;
+        transition: all .4s ease;
     }
     .card:hover {
         transform: translateY(-8px);
@@ -90,12 +90,10 @@
         border-color: #0d6efd33 !important;
     }
     
-    /* Qiymət rəngi */
     .text-primary {
         color: #0d6efd !important;
     }
 
-    /* Düymə keçidi */
     .btn-primary {
         background-color: #0d6efd;
         border: none;
@@ -106,14 +104,11 @@
         transform: scale(1.02);
     }
 
-    /* Mobil üçün tənzimləmə */
-    @media (max-width: 576px) {
-        .display-6 {
-            font-size: 2rem;
+    .display-6 {
+            font-size: 1.8rem;
         }
-        h3 {
-            font-size: 1.5rem;
+     h3 {
+            font-size: 1.4rem;
         }
-    }
 </style>
 @endsection

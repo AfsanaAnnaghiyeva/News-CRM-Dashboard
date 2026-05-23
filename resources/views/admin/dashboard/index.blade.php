@@ -67,7 +67,9 @@
         <div class="col-12 col-lg-6">
             <div class="card border-0 shadow-sm p-4" style="border-radius: 15px;">
                 <h5 class="fw-bold mb-4"><i class="bi bi-graph-up me-2"></i>Müştəri Satış Aktivliyi</h5>
-                <canvas id="dashboardChart" style="max-height: 300px;"></canvas>
+               <div style="position: relative; height: 300px; width: 100%;">
+            <canvas id="dashboardChart"></canvas>
+        </div>
             </div>
         </div>
 
@@ -137,13 +139,12 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        // Datalları alırıq
         const labels = {!! json_encode($labels) !!};
         const values = {!! json_encode($values ?? []) !!};
         const monthlyLabels = {!! json_encode($monthlyLabels) !!};
         const monthlyValues = {!! json_encode($monthlyValues ?? []) !!};
 
-        // 1. Müştəri Aktivliyi (Line Chart) - Modern Dizayn
+        // 1. Müştəri Aktivliyi (Line Chart)
         const canvas1 = document.getElementById('dashboardChart');
         if (canvas1 && labels && labels.length > 0) {
             const ctx = canvas1.getContext('2d');
@@ -188,7 +189,7 @@
             });
         }
 
-        // 2. Aylıq Gəlir (Bar Chart) - Zərif Sütunlar
+        // 2. Aylıq Gəlir (Bar Chart)
         const canvas2 = document.getElementById('revenueChart');
         if (canvas2 && monthlyLabels && monthlyLabels.length > 0) {
             new Chart(canvas2.getContext('2d'), {
@@ -199,8 +200,8 @@
                         label: 'Gəlir (AZN)',
                         data: monthlyValues,
                         backgroundColor: '#198754',
-                        borderRadius: 5, // Küncləri yuvarlaq edir
-                        barPercentage: 0.6, // Sütunu xeyli incəldir
+                        borderRadius: 5,
+                        barPercentage: 0.6,
                         categoryPercentage: 0.5
                     }]
                 },

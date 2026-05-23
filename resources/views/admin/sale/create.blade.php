@@ -82,7 +82,6 @@
                                 @error('note') <div class="invalid-feedback">{{ $message }}</div> @enderror
                             </div>
 
-                            {{-- Göndər Düyməsi --}}
                             <div class="col-12 mt-4">
                                 <button type="submit" class="btn btn-primary w-100 fw-bold shadow-sm" style="border-radius: 10px; height: 50px;">
                                     <i class="bi bi-cart-plus me-2"></i> Satışı Tamamla

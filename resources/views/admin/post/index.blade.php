@@ -18,7 +18,7 @@
             <div class="card border-0 shadow-sm h-100" style="border-radius: 15px; overflow: hidden; transition: 0.3s;">
                 <div class="position-relative">
                     @if($post->image)
-                        <img src="{{ asset('storage/uploads/' . $post->image) }}" class="card-img-top" style="height: 200px; object-fit: cover;" alt="post">
+                        <img src="{{ asset('storage/uploads/' . $post->image) }}" class="card-img-top" style="height: 300px;  width: 100%;object-fit: cover; object-position: center;" alt="post">
                     @else
                         <div class="bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
                             <i class="bi bi-image text-muted display-4"></i>
@@ -58,14 +58,14 @@
 </div>
 
 <style>
+    .card{transition: all .4s ease;}
     .card:hover {
-        transform: translateY(-8px);
+        transform: translateY(-6px);
         box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
     }
     .text-truncate-2 {
         overflow: hidden;
     }
-    /* Kartın kənarlarını təmizləmək üçün */
     .row { margin-right: -10px; margin-left: -10px; }
     .col-12 { padding-right: 10px; padding-left: 10px; }
 </style>

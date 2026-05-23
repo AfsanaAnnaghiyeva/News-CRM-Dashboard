@@ -49,10 +49,10 @@
         }
 
         /* Dark Mode */
-        body.dark-mode { background-color: #121212; color: #eee; }
+       /* body.dark-mode { background-color: #121212; color: #fff!important; }
         body.dark-mode .sidebar, body.dark-mode .navbar { background: #1e1e1e !important; border-color: #333 !important; }
         body.dark-mode .nav-link { color: #bbb; }
-        body.dark-mode .nav-link:hover { background-color: #2a2a2a; }
+        body.dark-mode .nav-link:hover { background-color: #2a2a2a; }*/
     </style>
 </head>
 <body>
@@ -60,7 +60,7 @@
 <div class="container-fluid">
     <div class="row">
         <nav id="sidebar" class="col-md-3 col-lg-2 sidebar p-3 shadow-sm d-md-block collapse">
-            <h5 class="fw-bold text-primary mb-4 px-2">TODO App</h5>
+            <h5 class="fw-bold text-primary mb-4 px-2">Admin Panel</h5>
             
             <ul class="nav flex-column">
                 <li class="nav-item"><a class="nav-link {{ request()->routeIs('admin.dashboard.*') ? 'active' : '' }}" href="{{route('admin.dashboard.index')}}"><i class="bi bi-house-door me-2"></i> Dashboard</a></li>
@@ -73,11 +73,11 @@
                  <li class="nav-item"><a class="nav-link {{ request()->routeIs('admin.sale.*') ? 'active' : '' }}" href="{{route('admin.sale.index')}}"><i class="bi bi-graph-up-arrow me-2"></i> Satışlar</a></li>
             </ul>
 
-            <div class="border-top pt-3 mt-4">
+           <!-- <div class="border-top pt-3 mt-4">
                 <button class="btn btn-outline-secondary w-100" onclick="toggleDarkMode()">
                     <i id="modeIcon" class="bi bi-moon-stars me-2"></i> Mode
                 </button>
-            </div>
+            </div>-->
         </nav>
 
         <main class="col-md-9 ms-sm-auto col-lg-10 p-0">
@@ -112,19 +112,28 @@
 @stack('scripts')
 
 <script>
+    const sidebar = document.getElementById('sidebar');
+
     function toggleSidebar() {
-        document.getElementById('sidebar').classList.toggle('show');
+        sidebar.classList.toggle('show');
     }
 
-    function toggleDarkMode() {
+    // Menyunun kənarına kliklədikdə bağlamaq üçün
+    document.addEventListener('click', function(event) {
+        const isClickInsideSidebar = sidebar.contains(event.target);
+        const isClickOnToggler = event.target.closest('.navbar-toggler');
+        
+        if (!isClickInsideSidebar && !isClickOnToggler && sidebar.classList.contains('show')) {
+            sidebar.classList.remove('show');
+        }
+    });
+
+   /* function toggleDarkMode() {
         document.body.classList.toggle('dark-mode');
         const icon = document.getElementById('modeIcon');
-        if (document.body.classList.contains('dark-mode')) {
-            icon.classList.replace('bi-moon-stars', 'bi-sun');
-        } else {
-            icon.classList.replace('bi-sun', 'bi-moon-stars');
-        }
-    }
+        icon.classList.toggle('bi-moon-stars');
+        icon.classList.toggle('bi-sun');
+    }*/
 </script>
 </body>
 </html>

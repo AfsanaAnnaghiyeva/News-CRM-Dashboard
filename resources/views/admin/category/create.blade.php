@@ -24,8 +24,7 @@
                                    placeholder="Məsələn: Texnologiya"
                                    value="{{ old('title') }}"
                                    required>
-                            
-                            {{-- Validasiya xətalarını dd əvəzinə burada səliqəli göstəririk --}}
+                        
                             @error('title')
                                 <div class="invalid-feedback">
                                     {{ $message }}

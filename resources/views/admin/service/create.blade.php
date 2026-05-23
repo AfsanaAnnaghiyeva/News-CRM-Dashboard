@@ -64,7 +64,6 @@
                         </div>
                     </form>
 
-                    {{-- Xətaların siyahısı (Ehtiyac olarsa) --}}
                     @if($errors->any())
                         <div class="alert alert-danger mt-4 py-2">
                             <ul class="mb-0 small">

@@ -55,13 +55,12 @@
 </div>
 
 <style>
-    /* Kartın üzərinə gələndə azca böyüməsi efekti */
+    .card{ transition: all .4s ease;}
     .card:hover {
         transform: translateY(-5px);
         box-shadow: 0 10px 20px rgba(0,0,0,0.08) !important;
     }
     
-    /* Background rəngini yumşaltmaq üçün (admin layout-da yoxdursa) */
     .bg-primary-subtle {
         background-color: #e7f1ff !important;
     }
