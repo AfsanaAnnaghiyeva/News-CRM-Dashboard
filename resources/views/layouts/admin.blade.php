@@ -84,6 +84,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
+
                 <div class="dropdown ms-auto">
                     <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle text-dark" data-bs-toggle="dropdown">
                         <img src="https://ui-avatars.com/api/?name={{ auth()->user()->full_name }}&background=0d6efd&color=fff" width="32" height="32" class="rounded-circle me-2">
@@ -95,6 +96,8 @@
                         <li><a class="dropdown-item text-danger" href="{{route('admin.auth.logout')}}">Çıxış</a></li>
                     </ul>
                 </div>
+
+                
             </nav>
 
             <div class="p-4">
@@ -116,7 +119,6 @@
         sidebar.classList.toggle('show');
     }
 
-    // Menyunun kənarına kliklədikdə bağlamaq üçün
     document.addEventListener('click', function(event) {
         const isClickInsideSidebar = sidebar.contains(event.target);
         const isClickOnToggler = event.target.closest('.navbar-toggler');

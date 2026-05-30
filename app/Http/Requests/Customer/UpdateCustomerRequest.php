@@ -40,7 +40,7 @@ class UpdateCustomerRequest extends FormRequest
     public function messages()
     {
         return[
-           'name.required'=>':attribute bos ola bilmez',
+           'name.required'=>':attribute boş ola bilməz',
            'logo.image'=>':attribute mütləq şəkil olmalıdır',
            'logo.mimes'=>':attribute yalnız jpeg,png,jpg, formatlarında ola bilər',
            'link.url'=>':attribute düzgün veb ünvanı olmalıdır(məs: https://google.com)'

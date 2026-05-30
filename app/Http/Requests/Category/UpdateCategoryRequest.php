@@ -35,9 +35,9 @@ class UpdateCategoryRequest extends FormRequest
     public function messages()
     {
         return [
-              'title.required'=>':attribute xanasi bos olmamalidi',
-              'title.min'=>'gozlenilen :attribute minimum 3 simvol ola biler',
-              'title.max'=>':attribute maksimum 24 simvol ola biler',
+              'title.required'=>':attribute xanası boş olmamalıdı',
+              'title.min'=>'gozlenilen :attribute minimum 3 simvol ola bilər',
+              'title.max'=>':attribute maksimum 24 simvol ola bilər',
         ];
     }
 }

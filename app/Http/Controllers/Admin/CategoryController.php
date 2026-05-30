@@ -13,6 +13,7 @@ class CategoryController extends Controller
 {
     public function index(){
         $items= Category::select(['id','title'])->orderBy('id','desc')->get();
+        
         return view('admin.category.index',[
             'items'=>$items
         ]);
@@ -24,7 +25,9 @@ class CategoryController extends Controller
     {
        $data = $request->validated();
        $data['slug']=Str::slug($request->title);
+
        Category::create($data);
+
        return redirect()->route('admin.category.index');
     }
     public function edit(int $category_id)
@@ -38,7 +41,9 @@ class CategoryController extends Controller
     {
         $data = $request->validated();
         $data['slug']= Str::slug($request->title);
+
        Category::where('id',$category_id)->update($data);
+
        return redirect()->route('admin.category.index');
     }
     public function delete(int $category_id)

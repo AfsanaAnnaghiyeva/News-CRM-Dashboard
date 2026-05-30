@@ -42,6 +42,7 @@ class SaleController extends Controller
         $sale = Sale::findOrFail($sale_id);
         $customers = Customer::all();
         $services = Service::all();
+        
          return view('admin.sale.edit',[
             'sale'=>$sale,
             'customers'=>$customers,

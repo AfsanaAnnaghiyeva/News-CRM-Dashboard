@@ -186,7 +186,7 @@
                         backgroundColor: gradient,
                         fill: true,
                         borderWidth: 2,
-                        tension: 0.5, // Xətti tam yumşaq (oval) edir
+                        tension: 0.5, // Xətti oval edir
                         pointRadius: 5,
                         pointBackgroundColor: '#fff',
                         pointBorderWidth: 2,
@@ -200,7 +200,7 @@
                     scales: {
                         y: { 
                             beginAtZero: true, 
-                            suggestedMax: Math.max(...values) +3, // Üstdən boşluq qoyur
+                            suggestedMax: Math.max(...values) +3, 
                             ticks: { 
                                 stepSize: 1,
                                 precision: 0

@@ -40,7 +40,7 @@ class PostController extends Controller
           'category_id'=>$request->category_id,
           'image'=>$image->hashName(),
           'status'=>$request->status,
-          'slug'=>\Illuminate\Support\Str::slug($request->title)
+          'slug'=>Str::slug($request->title)
       ];
       $postquery = Post::create($post);
       if($postquery){

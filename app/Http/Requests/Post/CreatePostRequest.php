@@ -38,7 +38,7 @@ class CreatePostRequest extends FormRequest
            'title'=>'Başlıq',
            'content'=>'Mezmun',
            'category_id'=>'Kateqoriya',
-           'image'=>'Sekil',
+           'image'=>'Şəkil',
            'status'=>'status'
         ];
     }
@@ -46,15 +46,15 @@ class CreatePostRequest extends FormRequest
     public function messages()
     {
         return [
-            'title.required'=>':attribute bos ola bilmez',
-            'content.required'=>':attribute bos ola bilmez',
-            'category_id.required'=>':attribute bos ola bilmez',
-            'category_id.int'=>':attribute sadece id ola biler',
-            'image.required'=>':attribute bos ola bilmez',
-            'image.mimes'=>':attribute sadece jpeg,jpg,png,gif ola biler',
+            'title.required'=>':attribute boş ola bilməz',
+            'content.required'=>':attribute boş ola bilməz',
+            'category_id.required'=>':attribute boş ola bilməz',
+            'category_id.int'=>':attribute sadece id ola bilər',
+            'image.required'=>':attribute boş ola bilməz',
+            'image.mimes'=>':attribute sadece jpeg,jpg,png,gif ola bilər',
             'image.max'=>':attribute ölçüsü 2MB-dan çox olmamalıdır',
-            'status.required'=>':attribute secilmelidir',
-            'status.boolean'=>':attribute formati duzgun deyil'
+            'status.required'=>':attribute seçilməlidir',
+            'status.boolean'=>':attribute formati düzgün deyil'
 
         ];
     }
